@@ -1,0 +1,559 @@
+module "tg_samcro" {
+  source                          = "../devser-terraform-apps/samcro/"
+  app-name                        = "samcro"
+  sftport                         = 2001
+  sftpassword                     = "eb5777d5678d4e66"
+  github_repo                     = "e2m-solutions/samcro.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_mediabridgecapital" {
+  source                          = "../devser-terraform-apps/mediabridgecapital/"
+  app-name                        = "mediabridgecapital"
+  sftport                         = 2002
+  sftpassword                     = "eb5777d5678d4e66"
+  github_repo                     = "e2m-solutions/mediabridgecapital.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_yagnik" {
+  source                          = "../devser-terraform-apps/yagnik/"
+  app-name                        = "yagnik"
+  sftport                         = 2003
+  sftpassword                     = "eb5777d5678d4e66"
+  github_repo                     = "e2m-solutions/yagnik.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_foamwarehouse" {
+  source                          = "../devser-terraform-apps/foamwarehouse/"
+  app-name                        = "foamwarehouse"
+  sftport                         = 2004
+  sftpassword                     = "eb5777d5678d4e66"
+  github_repo                     = "e2m-solutions/foamwarehouse.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_boesensnowlaw" {
+  source                          = "../devser-terraform-apps/boesensnowlaw/"
+  app-name                        = "boesensnowlaw"
+  sftport                         = 2005
+  sftpassword                     = "eb5777d5678d4e236"
+  github_repo                     = "e2m-solutions/boesensnowlaw.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_gorinotaekwondo" {
+  source                          = "../devser-terraform-apps/gorinotaekwondo/"
+  app-name                        = "gorinotaekwondo"
+  sftport                         = 2006
+  sftpassword                     = "EXmaryqnJJque342"
+  github_repo                     = "e2m-solutions/gorinotaekwondo.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_centurica" {
+  source                          = "../devser-terraform-apps/centurica/"
+  app-name                        = "centurica"
+  sftport                         = 2007
+  sftpassword                     = "eb5777d5678d4ew136"
+  github_repo                     = "e2m-solutions/centurica.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_lsq" {
+  source                          = "../devser-terraform-apps/lsq/"
+  app-name                        = "lsq"
+  sftport                         = 2008
+  sftpassword                     = "eb5777d5678d4ew100"
+  github_repo                     = "e2m-solutions/lsq.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_parealestate" {
+  source                          = "../devser-terraform-apps/parealestate/"
+  app-name                        = "parealestate"
+  sftport                         = 2009
+  sftpassword                     = "eb5777d5678d4ew101"
+  github_repo                     = "e2m-solutions/parealestate.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_newcastlehs" {
+  source                          = "../devser-terraform-apps/newcastlehs/"
+  app-name                        = "newcastlehs"
+  sftport                         = 2010
+  sftpassword                     = "eb5777d5678d4ew102"
+  github_repo                     = "e2m-solutions/newcastlehs.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_thegreencountry" {
+  source                          = "../devser-terraform-apps/thegreencountry/"
+  app-name                        = "thegreencountry"
+  sftport                         = 2011
+  sftpassword                     = "eb5777d5678d4e67"
+  github_repo                     = "e2m-solutions/thegreencountry.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_trofi" {
+  source                          = "../devser-terraform-apps/trofi/"
+  app-name                        = "trofi"
+  sftport                         = 2012
+  sftpassword                     = "eb5777d5678d1567"
+  github_repo                     = "e2m-solutions/trofi.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_suburbandisposal" {
+  source                          = "../devser-terraform-apps/suburbandisposal/"
+  app-name                        = "suburbandisposal"
+  sftport                         = 2013
+  sftpassword                     = "tfr5777d5678d1567"
+  github_repo                     = "e2m-solutions/suburbandisposal.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_emkadish" {
+  source                          = "../devser-terraform-apps/emkadish/"
+  app-name                        = "emkadish"
+  sftport                         = 2014
+  sftpassword                     = "tfr5990fd5678d1567"
+  github_repo                     = "e2m-solutions/emkadish.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_cascata" {
+  source                          = "../devser-terraform-apps/cascata/"
+  app-name                        = "cascata"
+  sftport                         = 2015
+  sftpassword                     = "rtn8990fd5678d1567"
+  github_repo                     = "e2m-solutions/cascata.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_bainbridgecapital" {
+  source                          = "../devser-terraform-apps/bainbridgecapital/"
+  app-name                        = "bainbridgecapital"
+  sftport                         = 2016
+  sftpassword                     = "prgn8990fd5678d1567"
+  github_repo                     = "e2m-solutions/bainbridgecapital.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php-74.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_policebeneficial" {
+  source                          = "../devser-terraform-apps/policebeneficial/"
+  app-name                        = "policebeneficial"
+  sftport                         = 2017
+  sftpassword                     = "rtns990fd5678d1567"
+  github_repo                     = "e2m-solutions/policebeneficial.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php-74.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_fnlpr" {
+  source                          = "../devser-terraform-apps/fnlpr/"
+  app-name                        = "fnlpr"
+  sftport                         = 2018
+  sftpassword                     = "rtns990fd5678d1577"
+  github_repo                     = "e2m-solutions/fnlpr.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_crossplaytherapy" {
+  source                          = "../devser-terraform-apps/crossplaytherapy/"
+  app-name                        = "crossplaytherapy"
+  sftport                         = 2019
+  sftpassword                     = "hello990fd5678d4677"
+  github_repo                     = "e2m-solutions/crossplaytherapy.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php-74.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
+
+module "tg_personalityhacker" {
+  source                          = "../devser-terraform-apps/personalityhacker/"
+  app-name                        = "personalityhacker"
+  sftport                         = 2020
+  sftpassword                     = "hello990fd5678d4647"
+  github_repo                     = "e2m-solutions/personalityhacker.devser.net"
+  github-branch                   = "main"
+  ecs_capacity_provider           = aws_ecs_capacity_provider.devser-ecs-cp.name
+  rds-endpoint                    = aws_db_instance.rds.endpoint
+  rds-master-password             = data.aws_secretsmanager_secret_version.global_password.secret_string
+  vpc-global-id                   = aws_vpc.main_vpc.id
+  ecs-alb                         = aws_lb.ecs_alb.arn
+  ecs-alb-dns_name                = aws_lb.ecs_alb.dns_name
+  ecs-alb-zone_id                 = aws_lb.ecs_alb.zone_id
+  route53-primary-zone_id         = aws_route53_zone.primary.zone_id
+  efs-global-id                   = aws_efs_file_system.efs.id
+  global-ecr-php-image            = aws_ecr_repository.ecr-php-74.repository_url
+  global-ecr-nginx-image          = aws_ecr_repository.ecr-nginx-privacy.repository_url
+  global-ecs-iam-task-exec-role   = aws_iam_role.ecs_tasks_execution_role.arn
+  global-ecs-cluster-id           = aws_ecs_cluster.cluster.id
+  global-ecs-cluster-name         = aws_ecs_cluster.cluster.name
+  global-ecs-service-role-name    = aws_iam_role.ecs-service-role.name
+  ecs_alb_listener_443_arn        = aws_lb_listener.ecs_alb_listener_443.arn
+  global_alb_tg_arn               = aws_lb_target_group.global_alb_tg.arn
+  global_aws_autoscaling_group_id = aws_autoscaling_group.ec2_cluster.id
+  e2msolutions-github-arn         = aws_codestarconnections_connection.e2msolutions-github.arn
+}
